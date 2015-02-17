@@ -7,7 +7,12 @@ at the same time.
 Only tested with mplayer and mpv if other players need unimplemented functions
 something will fail.
 
-Build it:
+To hardcode the deinterlacer to always be active, edit vdpau_private.h
+and uncomment
+
+#define FORCE_DEINT
+
+then just build it:
 
    $ make
    $ make install
@@ -21,6 +26,10 @@ variable to 1 (OSD enabled by default):
 To disable VSYNC support, set VDPAU_NOVSYNC environment
 variable to 1 (Vsync enabled by default):
    $ export VDPAU_NOVSYNC=1
+
+To enable experimental deinterlacer support, set VDPAU_DEINT environment
+variable to 1:
+   $ export VDPAU_DEINT=1
 
 and then for mplayer:
    $ mplayer -vo vdpau -vc ffmpeg12vdpau,ffh264vdpau, [filename]
