@@ -485,7 +485,7 @@ VdpStatus vdp_presentation_queue_target_destroy(VdpPresentationQueueTarget prese
 	if (!qt)
 		return VDP_STATUS_INVALID_HANDLE;
 
-	end_presentation = 1;
+	end_presentation = 0;
 	pthread_join(presentation_thread_id, NULL);
 
 	q_queue_free(queue);
